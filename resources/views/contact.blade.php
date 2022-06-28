@@ -62,70 +62,36 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Wahyu</td>
-                            <td>Alfatih</td>
-                            <td>Alfatih@gmail.com</td>
-                            <td>Beeyan</td>
-                            <td>
-                                <a href="" class="btn btn-outline-primary btn-circle">
-                                    <i class="fa fa-eye"></i>
-                                </a>
+                        @php
+                            $no = 0;
+                        @endphp
 
-                                <a href="" class="btn btn-outline-success btn-circle">
-                                    <i class="fa fa-edit"></i>
-                                </a>
+                        @foreach ($contacts as $contact)
+                            <tr>
+                                <td>{{ ++$no }}</td>
+                                <td>{{ $contact->first_name }}</td>
+                                <td>{{ $contact->last_name }}</td>
+                                <td>{{ $contact->email }}</td>
+                                <td>{{ $contact->company->name }}</td>
+                                <td>
+                                    <a href="" class="btn btn-outline-primary btn-circle">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
 
-                                <a href="" class="btn btn-outline-danger btn-circle">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
+                                    <a href="" class="btn btn-outline-success btn-circle">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Wahyu</td>
-                            <td>Alfatih</td>
-                            <td>Alfatih@gmail.com</td>
-                            <td>Beeyan</td>
-                            <td>
-                                <a href="" class="btn btn-outline-primary btn-circle">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-
-                                <a href="" class="btn btn-outline-success btn-circle">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-
-                                <a href="" class="btn btn-outline-danger btn-circle">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Wahyu</td>
-                            <td>Alfatih</td>
-                            <td>Alfatih@gmail.com</td>
-                            <td>Beeyan</td>
-                            <td>
-                                <a href="" class="btn btn-outline-primary btn-circle">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-
-                                <a href="" class="btn btn-outline-success btn-circle">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-
-                                <a href="" class="btn btn-outline-danger btn-circle">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
+                                    <a href="" class="btn btn-outline-danger btn-circle">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+
+                {{ $contacts->links() }}
             </div>
         </div>
     </div>
