@@ -18,6 +18,10 @@ body {
 	color: #dd5638;
 }
 
+.navbar-brand:hover{
+	color: #435d7d;
+}
+
 .navbar-light .navbar-nav .active>.nav-link {
     color: #435d7d;
 }
