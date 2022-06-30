@@ -23,10 +23,10 @@
                         <div class="row">
                             <div class="col">
                                 <select name="company" id="company" class="custom-select">
-                                    <option value="all">All Companies</option>
-                                    <option value="company1">Company 1</option>
-                                    <option value="company2">Company 2</option>
-                                    <option value="company3">Company 3</option>
+                                    @foreach ($companies as $id => $name)
+                                        <option {{ $id == request('company_id') ? 'selected' : '' }}  value="{{ $id }}">{{ $name }}</option>                            
+                                    @endforeach
+            
                                 </select>
                             </div>
 
@@ -66,9 +66,9 @@
                             $no = 0;
                         @endphp
 
-                        @foreach ($contacts as $contact)
+                        @foreach ($contacts as $index => $contact)
                             <tr>
-                                <td>{{ ++$no }}</td>
+                                <td>{{ $contacts->firstItem() + $index }}</td>
                                 <td>{{ $contact->first_name }}</td>
                                 <td>{{ $contact->last_name }}</td>
                                 <td>{{ $contact->email }}</td>
@@ -95,4 +95,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('company').addEventListener('change', function(){
+            let companyId = this.value || this.options[this.selectedIndex].value
+            window.location.href = window.location.href.split('?')[0] + '?company_id='+companyId 
+        })
+    </script>
 @endsection
