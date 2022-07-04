@@ -32,7 +32,7 @@
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">Contact</a>
+                            <a class="nav-link text-dark" href="{{ route('contact.index') }}">Contact</a>
                         </li>
                     </ul>
                 </div>

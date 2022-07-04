@@ -8,10 +8,10 @@
                     <h2 class="mb-0">All Contacts</h2>
                 
                     <div>
-                        <button class="btn btn-success">
+                        <a href="{{ route('contact.create') }}" class="btn btn-success">
                             <span><i class="fa fa-plus-circle"></i></span>
                             Add New
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                 <td>{{ $contact->email }}</td>
                                 <td>{{ $contact->company->name }}</td>
                                 <td>
-                                    <a href="" class="btn btn-outline-primary btn-circle">
+                                    <a href="{{ route('contact.show', $contact) }}" class="btn btn-outline-primary btn-circle">
                                         <i class="fa fa-eye"></i>
                                     </a>
 
@@ -91,7 +91,9 @@
                     </tbody>
                 </table>
 
+                {{-- {{ $contacts->appends(request()->only('company_id'))->links() }} --}}
                 {{ $contacts->links() }}
+
             </div>
         </div>
     </div>
