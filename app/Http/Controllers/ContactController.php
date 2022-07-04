@@ -43,4 +43,11 @@ class ContactController extends Controller
        return redirect()->route('contact.index');
     }
 
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+
+       return redirect()->route('contact.index');
+    }
+
 }

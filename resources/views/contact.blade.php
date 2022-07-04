@@ -62,10 +62,6 @@
                     </thead>
 
                     <tbody>
-                        @php
-                            $no = 0;
-                        @endphp
-
                         @foreach ($contacts as $index => $contact)
                             <tr>
                                 <td>{{ $contacts->firstItem() + $index }}</td>
@@ -82,9 +78,14 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
 
-                                    <a href="" class="btn btn-outline-danger btn-circle">
-                                        <i class="fa fa-times"></i>
-                                    </a>
+                                    <form action="{{ route('contact.destroy', $contact) }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        @method('delete')
+
+                                        <button type="submit" class="btn btn-outline-danger btn-circle">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
